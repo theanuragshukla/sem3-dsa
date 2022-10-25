@@ -7,7 +7,7 @@ int getdata(int transformedMat[], int i, int j){
 	if(i<j){
 		return 0;
 	}
-	int idx = i*(i+1)/2+j;
+	int idx = j*(j+1)/2+i;
 	return transformedMat[idx];
 }
 
