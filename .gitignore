@@ -1,2 +1,2 @@
 *.out
-./queue.c
+queue.c
