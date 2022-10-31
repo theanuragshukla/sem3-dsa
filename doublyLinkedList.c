@@ -58,7 +58,7 @@ int main(){
 	ll=deleteNodeAt(ll, 5);
 	printLinkedist(ll);
 	ll= reverse(ll);
-	printLinkedistReverse(ll);
+	printLinkedist(ll);
 	return 0;
 }
 
@@ -91,7 +91,6 @@ void printLinkedist(dll *ll){
 		printf("%d ", head->data);
 		head=head->next;
 	}
-	free(head);
 }
 
 void printLinkedistReverse(dll *ll){
@@ -101,7 +100,6 @@ void printLinkedistReverse(dll *ll){
 		printf("%d ", tail->data);
 		tail=tail->prev;
 	}
-	free(tail);
 }
 
 
@@ -174,7 +172,7 @@ dll* insertNodeAt(dll *ll,int idx,  int val){
 			newNode->next = temp->next;
 			temp->next=newNode;
 			newNode->prev = temp;
-			temp->next->prev=newNode;
+			newNode->next->prev=newNode;
 			break;
 		}
 		temp=temp->next;
@@ -212,8 +210,8 @@ dll* reverse(dll* ll){
         curr->next = temp;
         curr = curr->prev;
     }
-	 printf("\n%d\n", temp->prev->data);
 	 ll->head=temp->prev;
+	 ll->tail->next=NULL;
 	 return ll;
 }
 
